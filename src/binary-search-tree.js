@@ -1,64 +1,55 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const {NotImplementedError} = require('../extensions/index.js');
 
-const { Node } = require('../extensions/list-tree.js');
+const {Node} = require('../extensions/list-tree.js');
 
 /**
-* Implement simple binary search tree according to task description
-* using Node from extensions
-*/
+ * Implement simple binary search tree according to task description
+ * using Node from extensions
+ */
 class BinarySearchTree {
-constructor() {
-  this.head = null
-    this.length = 0;
- }
-  root() {
-    // throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-    return this.head
-  }
+    binareTree = [];
 
-  add(data) {
-    if (this.length === 0) {
-        this.head = new Node(data)
-    } else {
-        let actual = this.head;
-        while (actual.next) {
-            actual = actual.next;
+    root() {
+
+        if (this.binareTree.length) {
+            return {data: this.binareTree[0]}
+        } else {
+            return null
         }
-        actual.next = new Node(data);
     }
-    this.length++;
-    // throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
 
-  }
+    add(data) {
+        this.binareTree.push(data);
+    }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    has(data) {
+        return this.binareTree.includes(data);
+    }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    find(data) {
+        const item = this.binareTree.find((el) => el === data);
+        if (item) {
+            return {data: item}
+        } else {
+            return null
+        }
+    }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    remove(data) {
+        this.binareTree = this.binareTree.filter((item) => item !== data);
+    }
 
-  min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    min() {
+        return Math.min(...this.binareTree);
+    }
 
-  max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+    max() {
+        return Math.max(...this.binareTree);
+    }
+
+
 }
 
 module.exports = {
-  BinarySearchTree
+    BinarySearchTree
 };

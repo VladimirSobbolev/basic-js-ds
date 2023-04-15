@@ -13,19 +13,26 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class Stack {
-  push(/* element */) {
-    throw new NotImplementedError('Not implemented');
+  binareTree = [];
+  push(element) {
+    // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
+    this.binareTree.push(element)
+    return this;
   }
 
   pop() {
-    throw new NotImplementedError('Not implemented');
+    // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
+    this.binareTree.pop()
+    return this;
   }
 
   peek() {
     throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
+    let index = this.binareTree.length - 1
+    return {...this.binareTree[2]}
   }
 }
 
